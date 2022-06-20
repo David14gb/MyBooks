@@ -1,0 +1,19 @@
+.padre{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 99vw;
+    background-image: url("https://estaticos.muyinteresante.es/uploads/images/test/5899d3b75cafe85ef18b4568/test-libros0.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.texto{
+    color:white;
+    font-size:300%;
+    font-weight: 900;
+    border-radius: 10%;
+    padding: 1%;
+    background-color: rgba(0, 100, 0, 0.5)
+}
