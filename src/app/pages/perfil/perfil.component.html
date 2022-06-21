@@ -1,0 +1,33 @@
+<div class="padre">
+    <div class="padreCaja">
+        <div class="caja_lado1">
+            <img class="foto" src="https://media.revistagq.com/photos/625e6f8cafe8776a8182675b/16:9/w_1280,c_limit/trailer-thor-love-and-thunder.jpeg" alt="">
+            <div class="nombrecompleto">{{usuarioOne.nombre}} {{usuarioOne.apellido}} {{usuarioOne.correo}}</div>
+            <div class="padreNombre">
+                <div class="nombre">
+                    <p>Nombre</p>
+                    <input type="text" class="input_nombre" [(ngModel)]="usuarioOne.nombre" >
+                </div>
+                <div class="apellido">
+                    <p>Apellido</p>
+                    <input type="text" class="input_apellido"[(ngModel)]="usuarioOne.apellido">
+                </div>
+                <div class="correo">
+                    <p>Correo</p>
+                    <input type="text" class="input_correo"[(ngModel)]="usuarioOne.correo">
+                </div>
+            </div>
+        </div>
+        <div class="caja_lado2">
+            <div class="editar">Editar Datos</div>
+            <div class="campos">
+                <input type="text" class="campos_nombre" placeholder="Nombre" id="nombre" #input1>
+                <input type="text" class="campos_apellido" placeholder="Apellido" id="apellido" #input2>
+                <input type="text" class="campos_correo" placeholder="Correo" id="correo" #input3>
+                <input type="text" class="campos_url" placeholder="Url" id="url" #input4>
+            </div>
+            <button type="button" on-click=enviar(input1,input2,input3,input4) class="formu">Modificar</button>
+
+        </div>
+    </div>
+</div>
