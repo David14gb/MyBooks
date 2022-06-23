@@ -12,6 +12,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { FormsModule } from '@angular/forms';
 import { LibrosComponent } from './pages/libros/libros.component';
 import { ReflibroPipe } from './pipes/reflibro.pipe';
+import { AnadirComponent } from './pages/anadir/anadir.component';
+import { ModificarComponent } from './pages/modificar/modificar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ReflibroPipe } from './pipes/reflibro.pipe';
     RegistroComponent,
     PerfilComponent,
     LibrosComponent,
-    ReflibroPipe
+    ReflibroPipe,
+    AnadirComponent,
+    ModificarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,16 @@
 <div class="padre">
+    <!-- Buscador -->
+    <div class="buscar">
+        <form class="">
+            <input class="form-control me-2" type="number" placeholder="Search" aria-label="Search" #idlibro>
+            <button class="btn btn-outline-success" on-click="condicional(idlibro)" type="button">Search</button>
+        </form>
+    </div>
+    <!-- Cards -->
     <div class="cardPadre d-flex" *ngIf="libros.length>0; else elseTemplate">
         <ng-container *ngFor="let libro of libros; let even=even"> 
             <div class="card" style="width: 18rem;">
+                    <button class="x" type="number" on-click="borrar(libro.id_libro)">X</button>
                 <img class="card-img-top" src="{{libro.photo}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{libro.titulo}}</h5>
@@ -24,9 +33,9 @@
         No hay libros
     </ng-template>
      <!-- Formulario -->
-    <form>
+    <!-- <form>
         <div class="formulariopadre">
-            <h1>Añadir Libros</h1>
+            <h1>Libros</h1>
                 <div class="formulario">
                     <label for="idlibro">Id Libro:</label>
                     <input type="number" placeholder="Id Libro" id="idlibro" class="formu" #input1><br>
@@ -47,6 +56,5 @@
 
                 </div>
         </div>
-    </form>
-
+    </form> -->
 </div>
