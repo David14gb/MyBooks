@@ -1,0 +1,11 @@
+.padre{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 99vw;
+    background-image: url("https://educacion30.b-cdn.net/wp-content/uploads/2021/03/libros-sobre-el-placer-de-leer-978x652.jpg");
+    background-size: cover;
+    background-position: center;
+}

@@ -15,7 +15,8 @@ import { ReflibroPipe } from './pipes/reflibro.pipe';
 import { AnadirComponent } from './pages/anadir/anadir.component';
 import { ModificarComponent } from './pages/modificar/modificar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './pages/login/login.component'
+import { LoginComponent } from './pages/login/login.component';
+import { FormularioLoginComponent } from './component/formulario-login/formulario-login.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginComponent } from './pages/login/login.component'
     ReflibroPipe,
     AnadirComponent,
     ModificarComponent,
-    LoginComponent
+    LoginComponent,
+    FormularioLoginComponent
   ],
   imports: [
     BrowserModule,

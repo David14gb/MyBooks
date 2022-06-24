@@ -15,10 +15,16 @@ export class UsuarioService {
   
   register(usuario:Usuario){
 
+    console.log("----------");
+    console.log(usuario);
+  
     return this.http.post(this.url + "registro", usuario)
 
   }
   login(usuario:Usuario){
+
+    console.log(usuario);
+    
     return this.http.post(this.url + "login", usuario)
   }
 }

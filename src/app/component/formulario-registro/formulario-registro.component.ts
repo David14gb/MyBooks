@@ -9,7 +9,8 @@ import { UsuarioService } from 'src/app/share/usuario.service';
 })
 export class FormularioRegistroComponent implements OnInit {
 
-  constructor(public usuario:UsuarioService) { }
+  public usuario:Usuario
+  constructor(public apiService:UsuarioService) { }
 
   ngOnInit(): void {
   }
@@ -17,9 +18,16 @@ export class FormularioRegistroComponent implements OnInit {
   registrarse(nombre:HTMLInputElement, apellido:HTMLInputElement, 
             email:HTMLInputElement, url:HTMLInputElement, 
             contraseña:HTMLInputElement, repetircontra:HTMLInputElement){
-    if(contraseña == repetircontra){
+    if(contraseña.value == repetircontra.value){
         let usuarioNuevo = new Usuario(nombre.value, apellido.value, email.value, url.value, contraseña.value)
-        this.usuario.register(usuarioNuevo)
+        this.apiService.register(usuarioNuevo).subscribe((data:Usuario[]) =>
+        {
+          console.log(data);
+          
+        })
+        
+        console.log("Usuario Registrado");
+        
     }else{
       console.log("Las contraseñas no coincicen");
       
