@@ -26,7 +26,8 @@ export class LibrosComponent implements OnInit {
   }
 
   public borrar(id){
-    
+
+    console.log(id);
     this.mostrar.delete(id)
   }
 

@@ -71,16 +71,20 @@ export class LibrosService {
     return true
   }
   public delete(id_libro:number):boolean{
-    // let result:Libro = null;
+    let result:boolean = false;
     for(let i=0; i<this.libros.length;i++){
-      if(this.libros[i].id_libro == id_libro){
+      if(id_libro == this.libros[i].id_libro){
         this.libros.splice(i, 1)
-        return true
+
+        console.log(this.libros);
+        
+        console.log("Libro en Delete Service");
+        return result = true
       }else{
-        return false
+        console.log("Libro en Delete Service Parte False");
+        // return result = false
       }
     }
-    console.log("Libro en Delete Service");
     
   }
 
