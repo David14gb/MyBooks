@@ -4,19 +4,19 @@
         <h1>Books</h1>
             <div class="formulario">
                 <label for="nombre">Nombre:</label>
-                <input type="text" placeholder="Nombre" id="nombre" class="formu"><br>
+                <input type="text" placeholder="Nombre" id="nombre" class="formu" #input1><br>
                 <label for="apellido">Apellido:</label>
-                <input type="number" placeholder="Apellido" id="apellido" class="formu"><br>
+                <input type="number" placeholder="Apellido" id="apellido" class="formu" #input2><br>
                 <label for="email">Email:</label>
-                <input type="text" placeholder="Email" id="email" class="formu"><br>
+                <input type="text" placeholder="Email" id="email" class="formu" #input3><br>
                 <label for="url">Url:</label>
-                <input type="text" placeholder="Url" id="url" class="formu"><br>
+                <input type="text" placeholder="Url" id="url" class="formu" #input4><br>
                 <label for="contraseña">Contraseña:</label>
-                <input type="text" placeholder="Contraseña" id="contraseña" class="formu"><br>
+                <input type="text" placeholder="Contraseña" id="contraseña" class="formu" #input5><br>
                 <label for="recontra">Repetir constraseña:</label>
-                <input type="text" placeholder="Repetir Contraseña" id="recontra" class="formu"><br>
+                <input type="text" placeholder="Repetir Contraseña" id="recontra" class="formu" #input6><br>
                 
-                <button type="button" onclick="" class="formu">Mostrar</button>
+                <button type="button" on-click="registrarse(input1,input2,input3,input4,input5,input6)" class="formu">Mostrar</button>
 
             </div>
     </div>

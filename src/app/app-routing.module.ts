@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnadirComponent } from './pages/anadir/anadir.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LibrosComponent } from './pages/libros/libros.component';
+import { LoginComponent } from './pages/login/login.component';
 import { ModificarComponent } from './pages/modificar/modificar.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { RegistroComponent } from './pages/registro/registro.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: "perfil", component:PerfilComponent},
   {path: "libro", component:LibrosComponent},
   {path: "anadir", component:AnadirComponent},
-  {path: "modificar", component:ModificarComponent}
+  {path: "modificar", component:ModificarComponent},
+  {path: "login", component:LoginComponent}
 
 ];
 

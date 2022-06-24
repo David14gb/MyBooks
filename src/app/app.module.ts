@@ -14,6 +14,8 @@ import { LibrosComponent } from './pages/libros/libros.component';
 import { ReflibroPipe } from './pipes/reflibro.pipe';
 import { AnadirComponent } from './pages/anadir/anadir.component';
 import { ModificarComponent } from './pages/modificar/modificar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './pages/login/login.component'
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { ModificarComponent } from './pages/modificar/modificar.component';
     LibrosComponent,
     ReflibroPipe,
     AnadirComponent,
-    ModificarComponent
+    ModificarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

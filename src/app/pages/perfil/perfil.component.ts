@@ -11,7 +11,7 @@ export class PerfilComponent implements OnInit {
         public usuarioOne: Usuario;
   constructor() { 
 
-        this.usuarioOne = new Usuario(1, "Thor", "Thunder", "thor@gmail.com",
+        this.usuarioOne = new Usuario("Thor", "Thunder", "thor@gmail.com",
                   "https://static01.nyt.com/images/2017/11/02/arts/03thor-webmain-ES/03thor-webmain-superJumbo.jpg",
                   "thorpassword")
   }
