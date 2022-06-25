@@ -12,16 +12,16 @@ export class LibrosComponent implements OnInit {
   public libros: Libro[];
 
   constructor(public mostrar:LibrosService) { 
-    this.libros = this.mostrar.getAll()
+    // this.libros = this.mostrar.getAll(id)
   }
 
   public condicional(id:HTMLInputElement){
     console.log(id.value);
     if(id.value){
       this.libros = []
-      this.libros[0] = this.mostrar.getOne(id.valueAsNumber)
+      // this.libros[0] = this.mostrar.getOne(id.valueAsNumber)
     }else{
-      this.libros = this.mostrar.getAll()
+      // this.libros = this.mostrar.getAll(id)
     }
   }
 

@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Libro } from '../models/libro';
 
 @Injectable({
@@ -14,8 +16,9 @@ export class LibrosService {
     new Libro(5, 5, "Spiderman el libro", "Tapa blanda", "Spiderman", 40, "https://www.cinemascomics.com/wp-content/uploads/2022/03/Spider-Man-No-Way-Home-traje-final.jpg"),
     new Libro(6, 6, "Marvel el libro", "Kindle", "Marvel", 30, "https://www.zonanegativa.com/imagenes/2019/05/WTF_Destacada_2.jpg")
   ];
+  private url:string = "http://localhost:3000/";
 
-  constructor() { };
+  constructor(private http: HttpClient) { };
 
   public getLibros():Libro[]{ //Es lo mismo que el getAll()
 
@@ -27,13 +30,14 @@ export class LibrosService {
 
 // Métodos
 
-  public getAll():Libro[]{
+  public getAll(id_usuario:number):Observable<Object>{
 
     console.log("Libro en GetAll Service");
-    return this.libros
+    return this.http.get(this.url + "libros" + id_usuario)
     
   };
-  public getOne(id_libro:number):Libro{
+ 
+  public getOne(id_usuario:number, id_libro:number):Observable<Object>{
 
     let result:Libro = null;
     for(let i=0; i<this.libros.length;i++){
@@ -43,16 +47,18 @@ export class LibrosService {
     }
 
     console.log("Libro en GetOne Service");
-    return result
+    return this.http.get(this.url + "libros?id" + id_libro)
+    // return result
   }
-  public add(libro:Libro):void{
+  public add(libro:Libro):Observable<Object>{
     
     console.log("Libro en Add Service");
     console.log(libro);
     
     this.libros.push(libro)
+    return this.http.post(this.url + "libros", libro)
   };
-  public edit(libro:Libro):boolean{
+  public edit(libro:Libro):Observable<Object>{
 
     console.log(libro);
     
@@ -60,18 +66,18 @@ export class LibrosService {
       if(this.libros[i].id_libro == libro.id_libro){
         libro.id_usuario ? this.libros[i].id_usuario = libro.id_usuario : this.libros[i].id_usuario;
         libro.titulo ? this.libros[i].titulo = libro.titulo : this.libros[i].titulo;
-        libro.tipoLibro ?  this.libros[i].tipoLibro = libro.tipoLibro : this.libros[i].tipoLibro;
+        libro.tipo ?  this.libros[i].tipo = libro.tipo : this.libros[i].tipo;
         libro.autor ? this.libros[i].autor = libro.autor : this.libros[i].autor;
         libro.precio ? this.libros[i].precio = libro.precio : this.libros[i].precio;
-        libro.photo ? this.libros[i].photo = libro.photo : this.libros[i].photo
+        libro.foto ? this.libros[i].foto = libro.foto : this.libros[i].foto
       }
     }
     
     console.log("Libro en Edit Service");
-    return true
+    return this.http.put(this.url + "libros", libro)//true
   }
-  public delete(id_libro:number):boolean{
-    let result:boolean = false;
+  public delete(id_libro:number):Observable<Object>{
+    // let result:boolean = false;
     for(let i=0; i<this.libros.length;i++){
       if(id_libro == this.libros[i].id_libro){
         this.libros.splice(i, 1)
@@ -79,7 +85,7 @@ export class LibrosService {
         console.log(this.libros);
         
         console.log("Libro en Delete Service");
-        return result = true
+        return this.http.delete(this.url + "libros")
       }else{
         console.log("Libro en Delete Service Parte False");
         // return result = false
