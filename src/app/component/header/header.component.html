@@ -13,15 +13,19 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <ng-container class="navbar-nav"*ngIf="logueado == false; else elseTemplate">
           <a class="nav-link active" aria-current="page" routerLink="">Home</a>
           <a class="nav-link active" aria-current="page" routerLink="registro">Registro</a>
-          <a class="nav-link active" aria-current="page" routerLink="perfil">Perfil</a>
-          <a class="nav-link active" aria-current="page" routerLink="libro">Libros</a>
-          <a class="nav-link active" aria-current="page" routerLink="anadir">Añadir</a>
-          <a class="nav-link active" aria-current="page" routerLink="modificar">Modificar</a>
           <a class="nav-link active" aria-current="page" routerLink="login">Login</a>
-        </div>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <div class="logeado d-flex" >
+            <a class="nav-link active" aria-current="page" routerLink="perfil">Perfil</a>
+            <a class="nav-link active" aria-current="page" routerLink="libro">Libros</a>
+            <a class="nav-link active" aria-current="page" routerLink="anadir">Añadir</a>
+            <a class="nav-link active" aria-current="page" routerLink="modificar">Modificar</a>
+          </div>
+        </ng-template>
       </div>
     </div>
   </nav>

@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     width: 99vw;
     background-image: url("https://www.nationalgeographic.com.es/medio/2021/04/16/istock-944631208_28a03c99_800x800.jpg");
     background-size: cover;
