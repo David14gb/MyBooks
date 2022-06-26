@@ -15,7 +15,12 @@ export class ModificarComponent implements OnInit {
   
     let libro1:Libro = new Libro(idl.valueAsNumber, idu.valueAsNumber, titulo.value, tipolibro.value, autor.value, precio.valueAsNumber, photo.value)
     // console.log(libro1);
-    this.modificar.edit(libro1)
+    this.modificar.edit(libro1).subscribe((data)=>
+    {
+      console.log("Data del Modificar component");
+      
+      console.log(data);
+    })
 
   }
 

@@ -41,10 +41,10 @@ export class LibrosService {
  
   public getOne(id_usuario:number, id_libro:number):Observable<Object>{
 
-    let result:Libro = null;
+    // let result:Libro = null;
     for(let i=0; i<this.libros.length;i++){
       if(this.libros[i].id_libro == id_libro){
-      result = this.libros[i]
+      // result = this.libros[i]
       }
     }
 
@@ -66,12 +66,12 @@ export class LibrosService {
     
     for(let i=0; i<this.libros.length;i++){
       if(this.libros[i].id_libro == libro.id_libro){
-        libro.id_usuario ? this.libros[i].id_usuario = libro.id_usuario : this.libros[i].id_usuario;
-        libro.titulo ? this.libros[i].titulo = libro.titulo : this.libros[i].titulo;
-        libro.tipo ?  this.libros[i].tipo = libro.tipo : this.libros[i].tipo;
-        libro.autor ? this.libros[i].autor = libro.autor : this.libros[i].autor;
-        libro.precio ? this.libros[i].precio = libro.precio : this.libros[i].precio;
-        libro.foto ? this.libros[i].foto = libro.foto : this.libros[i].foto
+        libro.id_usuario != null ? this.libros[i].id_usuario = libro.id_usuario : this.libros[i].id_usuario;
+        libro.titulo != "" ? this.libros[i].titulo = libro.titulo : this.libros[i].titulo;
+        libro.tipo != '' ?  this.libros[i].tipo = libro.tipo : this.libros[i].tipo;
+        libro.autor != "" ? this.libros[i].autor = libro.autor : this.libros[i].autor;
+        libro.precio != null ? this.libros[i].precio = libro.precio : this.libros[i].precio;
+        libro.foto != "" ? this.libros[i].foto = libro.foto : this.libros[i].foto
       }
     }
     
@@ -80,20 +80,27 @@ export class LibrosService {
   }
   public delete(id_libro:number):Observable<Object>{
     // let result:boolean = false;
-    for(let i=0; i<this.libros.length;i++){
-      if(id_libro == this.libros[i].id_libro){
-        this.libros.splice(i, 1)
+    console.log("id_libro delete service");
+    console.log(id_libro);
+    // console.log(this.libros);
+    
+    // for(let i=0; i<this.libros.length;i++){
+      // if(id_libro){
+        
+        
+        
+        // splice(id_libro, 1)
 
-        console.log(this.libros);
+        // console.log(this.libros.length);
         
         console.log("Libro en Delete Service");
-        return this.http.delete(this.url + "libros")
-      }else{
-        console.log("Libro en Delete Service Parte False");
+        return this.http.delete(this.url, {[id_libro]:Number})
+      // }else{
+        // console.log("Libro en Delete Service Parte False");
         // return result = false
-      }
+      // }
     }
     
-  }
+  // }
 
 }

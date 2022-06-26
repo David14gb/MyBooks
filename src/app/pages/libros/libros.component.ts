@@ -39,10 +39,15 @@ export class LibrosComponent implements OnInit {
     }
   }
 
-  public borrar(id){
+  public borrar(id:number){
 
     console.log(id);
-    this.mostrar.delete(id)
+    this.mostrar.delete(id).subscribe((data)=>
+    {
+      console.log("Delete libros component");
+      console.log(data);
+      
+    })
   }
 
   ngOnInit(): void {
