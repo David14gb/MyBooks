@@ -9,14 +9,14 @@ import { Libro } from '../models/libro';
 export class LibrosService {
 
   private libros:Libro[] = [
-    new Libro(1, 1, "Thor el libro", "Tapa dura", "Thor", 50, "https://www.enter.co/wp-content/uploads/2017/10/thor-the-dark-world-1024x767.jpg"),
-    new Libro(2, 2, "Spiderman el libro", "Tapa blanda", "Spiderman", 40, "https://www.cinemascomics.com/wp-content/uploads/2022/03/Spider-Man-No-Way-Home-traje-final.jpg"),
-    new Libro(3, 3, "Marvel el libro", "Kindle", "Marvel", 30, "https://www.zonanegativa.com/imagenes/2019/05/WTF_Destacada_2.jpg"),
-    new Libro(4, 4, "Thor el libro", "Tapa dura", "Thor", 50, "https://www.enter.co/wp-content/uploads/2017/10/thor-the-dark-world-1024x767.jpg"),
-    new Libro(5, 5, "Spiderman el libro", "Tapa blanda", "Spiderman", 40, "https://www.cinemascomics.com/wp-content/uploads/2022/03/Spider-Man-No-Way-Home-traje-final.jpg"),
-    new Libro(6, 6, "Marvel el libro", "Kindle", "Marvel", 30, "https://www.zonanegativa.com/imagenes/2019/05/WTF_Destacada_2.jpg")
+    // new Libro(1, 1, "Thor el libro", "Tapa dura", "Thor", 50, "https://www.enter.co/wp-content/uploads/2017/10/thor-the-dark-world-1024x767.jpg"),
+    // new Libro(2, 2, "Spiderman el libro", "Tapa blanda", "Spiderman", 40, "https://www.cinemascomics.com/wp-content/uploads/2022/03/Spider-Man-No-Way-Home-traje-final.jpg"),
+    // new Libro(3, 3, "Marvel el libro", "Kindle", "Marvel", 30, "https://www.zonanegativa.com/imagenes/2019/05/WTF_Destacada_2.jpg"),
+    // new Libro(4, 4, "Thor el libro", "Tapa dura", "Thor", 50, "https://www.enter.co/wp-content/uploads/2017/10/thor-the-dark-world-1024x767.jpg"),
+    // new Libro(5, 5, "Spiderman el libro", "Tapa blanda", "Spiderman", 40, "https://www.cinemascomics.com/wp-content/uploads/2022/03/Spider-Man-No-Way-Home-traje-final.jpg"),
+    // new Libro(6, 6, "Marvel el libro", "Kindle", "Marvel", 30, "https://www.zonanegativa.com/imagenes/2019/05/WTF_Destacada_2.jpg")
   ];
-  private url:string = "http://localhost:3000/";
+  private url:string = "http://localhost:3000/libros";
 
   constructor(private http: HttpClient) { };
 
@@ -32,8 +32,10 @@ export class LibrosService {
 
   public getAll(id_usuario:number):Observable<Object>{
 
-    console.log("Libro en GetAll Service");
-    return this.http.get(this.url + "libros" + id_usuario)
+    console.log("Libro en GetAll Service id_usuario");
+    console.log(id_usuario);
+    
+    return this.http.get(this.url +"?id_usuario=" + id_usuario)
     
   };
  
@@ -47,7 +49,7 @@ export class LibrosService {
     }
 
     console.log("Libro en GetOne Service");
-    return this.http.get(this.url + "libros?id" + id_libro)
+    return this.http.get(this.url + "?id=" + id_libro)
     // return result
   }
   public add(libro:Libro):Observable<Object>{
@@ -56,7 +58,7 @@ export class LibrosService {
     console.log(libro);
     
     this.libros.push(libro)
-    return this.http.post(this.url + "libros", libro)
+    return this.http.post(this.url, libro)
   };
   public edit(libro:Libro):Observable<Object>{
 
@@ -74,7 +76,7 @@ export class LibrosService {
     }
     
     console.log("Libro en Edit Service");
-    return this.http.put(this.url + "libros", libro)//true
+    return this.http.put(this.url, libro)//true
   }
   public delete(id_libro:number):Observable<Object>{
     // let result:boolean = false;

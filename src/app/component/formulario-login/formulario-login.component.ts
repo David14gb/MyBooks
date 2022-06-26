@@ -12,24 +12,30 @@ import { UsuarioService } from 'src/app/share/usuario.service';
 export class FormularioLoginComponent implements OnInit {
 
   public usuario: Usuario
-  constructor(public apiServicve:UsuarioService, public router:Router) { }
+  constructor(public apiService:UsuarioService, public router:Router) { }
 
   ngOnInit(): void {
   }
   
   iniciarSesion(correo:HTMLInputElement, contraseña:HTMLInputElement){
     let inicioSesion = new Usuario ("", "", correo.value, "", contraseña.value)
-    this.apiServicve.login(inicioSesion).subscribe((data) => 
+    this.apiService.login(inicioSesion).subscribe((data) => 
     {
       // console.log("data");
       // console.log(data);
-      this.apiServicve.logueado = true
-      this.apiServicve.usuario = data[0]
-      console.log("Data[0]");
-      console.log(data[0]);
+      this.apiService.usuario = data[0];
+      // console.log("Data[0]");
+      // console.log(data[0]);
+      // console.log("apiService");
+      // console.log(this.apiService);
+      
 
       if(data[0].error == false){
+        this.apiService.logueado = true;
         this.router.navigateByUrl('/libro')
+        console.log("apiService con data error false");
+        console.log(this.apiService);
+        
       }
       
     })

@@ -7,16 +7,16 @@
         </form>
     </div>
     <!-- Cards -->
-    <div class="cardPadre d-flex" *ngIf="libros.length>0; else elseTemplate">
+    <!-- <div class="cardPadre d-flex" *ngIf="id == id_usuario; else elseTemplate"> -->
         <ng-container *ngFor="let libro of libros; let even=even"> 
             <div class="card" style="width: 18rem;">
                     <button class="x" type="number" on-click="borrar(libro.id_libro)">X</button>
-                <img class="card-img-top" src="{{libro.photo}}" alt="Card image cap">
+                <img class="card-img-top" src="{{libro.foto}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{libro.titulo}}</h5>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Tapa: {{libro.tipoLibro}}</li>
+                        <li class="list-group-item">Tapa: {{libro.tipo}}</li>
                         <li class="list-group-item">Autor: {{libro.autor}}</li>
                         <li class="list-group-item">Precio: {{libro.precio}}€</li>
                         <li class="list-group-item">{{libro.id_libro | reflibro}}</li>
@@ -28,7 +28,7 @@
                 </div>
             </div>
         </ng-container> 
-    </div>
+    <!-- </div> -->
     <ng-template class="noLibros" #elseTemplate>
         No hay libros
     </ng-template>

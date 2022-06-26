@@ -8,10 +8,10 @@ import { UsuarioService } from 'src/app/share/usuario.service';
 })
 export class HeaderComponent implements OnInit {
 
-  public logueado:boolean
+  // public logueado:boolean
 
   constructor(public apiService:UsuarioService) {
-    this.logueado = this.apiService.logueado
+    // this.logueado = this.apiService.logueado
    }
 
   ngOnInit(): void {
