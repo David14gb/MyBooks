@@ -19,18 +19,18 @@ export class FormularioLoginComponent implements OnInit {
   
   iniciarSesion(correo:HTMLInputElement, contraseña:HTMLInputElement){
     let inicioSesion = new Usuario ("", "", correo.value, "", contraseña.value)
-    this.apiService.login(inicioSesion).subscribe((data) => 
+    this.apiService.login(inicioSesion).subscribe((data:any) => 
     {
       // console.log("data");
       // console.log(data);
-      this.apiService.usuario = data[0];
+      this.apiService.usuario = data.result[0];
       // console.log("Data[0]");
       // console.log(data[0]);
       // console.log("apiService");
       // console.log(this.apiService);
       
 
-      if(data[0].error == false){
+      if(data.error == false){
         this.apiService.logueado = true;
         this.router.navigateByUrl('/libro')
         console.log("apiService con data error false");

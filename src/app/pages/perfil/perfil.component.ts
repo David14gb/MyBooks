@@ -20,15 +20,15 @@ export class PerfilComponent implements OnInit {
   }
   enviar(nNombre: HTMLInputElement, nApellido: HTMLInputElement, nCorreo: HTMLInputElement, nUrl: HTMLInputElement){
     
-      console.log(this.usuarioOne.nombre, this.usuarioOne.apellido,
-                  this.usuarioOne.correo, this.usuarioOne.url);
+      console.log(this.usuarioOne.nombre, this.usuarioOne.apellidos,
+                  this.usuarioOne.correo, this.usuarioOne.foto);
 
       this.usuarioOne.nombre = nNombre.value; 
-      this.usuarioOne.apellido = nApellido.value; 
+      this.usuarioOne.apellidos = nApellido.value; 
       this.usuarioOne.correo = nCorreo.value; 
-      this.usuarioOne.url = nUrl.value; 
+      this.usuarioOne.foto = nUrl.value; 
 
-      console.log(this.usuarioOne.nombre, this.usuarioOne.apellido,
-                  this.usuarioOne.correo, this.usuarioOne.url);
+      console.log(this.usuarioOne.nombre, this.usuarioOne.apellidos,
+                  this.usuarioOne.correo, this.usuarioOne.foto);
   }
 }

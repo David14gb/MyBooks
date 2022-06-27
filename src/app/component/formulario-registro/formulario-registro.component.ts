@@ -15,11 +15,11 @@ export class FormularioRegistroComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  registrarse(nombre:HTMLInputElement, apellido:HTMLInputElement, 
+  registrarse(nombre:HTMLInputElement, apellidos:HTMLInputElement, 
             email:HTMLInputElement, url:HTMLInputElement, 
             contraseña:HTMLInputElement, repetircontra:HTMLInputElement){
     if(contraseña.value == repetircontra.value){
-        let usuarioNuevo = new Usuario(nombre.value, apellido.value, email.value, url.value, contraseña.value)
+        let usuarioNuevo = new Usuario(nombre.value, apellidos.value, email.value, url.value, contraseña.value)
         this.apiService.register(usuarioNuevo).subscribe((data:Usuario[]) =>
         {
           console.log(data);

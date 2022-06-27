@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Libro } from '../models/libro';
@@ -41,16 +41,13 @@ export class LibrosService {
  
   public getOne(id_usuario:number, id_libro:number):Observable<Object>{
 
-    // let result:Libro = null;
-    for(let i=0; i<this.libros.length;i++){
-      if(this.libros[i].id_libro == id_libro){
-      // result = this.libros[i]
-      }
-    }
-
     console.log("Libro en GetOne Service");
-    return this.http.get(this.url + "?id=" + id_libro)
-    // return result
+    console.log(id_usuario);
+    console.log(id_libro);
+    
+    
+    return this.http.get(this.url + "?id_libro=" + id_libro + "&id_usuario=" + id_usuario)
+
   }
   public add(libro:Libro):Observable<Object>{
     
@@ -62,18 +59,23 @@ export class LibrosService {
   };
   public edit(libro:Libro):Observable<Object>{
 
-    console.log(libro);
+    // console.log(libro);
+    // console.log("this.libro");
+    // console.log(this.libros);
+    // this.libros.push(libro);
+    // console.log(this.libros);
+    // console.log(this.libros.length);
     
-    for(let i=0; i<this.libros.length;i++){
-      if(this.libros[i].id_libro == libro.id_libro){
-        libro.id_usuario != null ? this.libros[i].id_usuario = libro.id_usuario : this.libros[i].id_usuario;
-        libro.titulo != "" ? this.libros[i].titulo = libro.titulo : this.libros[i].titulo;
-        libro.tipo != '' ?  this.libros[i].tipo = libro.tipo : this.libros[i].tipo;
-        libro.autor != "" ? this.libros[i].autor = libro.autor : this.libros[i].autor;
-        libro.precio != null ? this.libros[i].precio = libro.precio : this.libros[i].precio;
-        libro.foto != "" ? this.libros[i].foto = libro.foto : this.libros[i].foto
-      }
-    }
+    // for(let i=0; i<this.libros.length;i++){
+      
+        
+    //     this.libros[i].id_usuario = libro.id_usuario 
+    //     this.libros[i].titulo = libro.titulo 
+    //     this.libros[i].tipo = libro.tipo 
+    //     this.libros[i].autor = libro.autor 
+    //     this.libros[i].precio = libro.precio 
+    //     this.libros[i].foto = libro.foto 
+    // }
     
     console.log("Libro en Edit Service");
     return this.http.put(this.url, libro)//true
@@ -92,9 +94,13 @@ export class LibrosService {
         // splice(id_libro, 1)
 
         // console.log(this.libros.length);
-        
+
+        // {[id_libro]:Number}
         console.log("Libro en Delete Service");
-        return this.http.delete(this.url, {[id_libro]:Number})
+        // const httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/json' }),id_libro}
+        // const httpOptions = {headers: null, body: id_libro}
+        // return this.http.delete(this.url, httpOptions)
+        return this.http.delete(this.url + "?id_libro=" + id_libro)
       // }else{
         // console.log("Libro en Delete Service Parte False");
         // return result = false

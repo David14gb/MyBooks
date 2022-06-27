@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Libro } from 'src/app/models/libro';
 // import { Usuario } from 'src/app/models/usuario';
 import { LibrosService } from 'src/app/share/libros.service';
-// import { UsuarioService } from 'src/app/share/usuario.service';
+import { UsuarioService } from 'src/app/share/usuario.service';
+
 
 @Component({
   selector: 'app-libros',
@@ -14,24 +15,37 @@ export class LibrosComponent implements OnInit {
   public libros: Libro[];
   // public usuario: Usuario
   // , public usuarioService:UsuarioService
-  constructor(public mostrar:LibrosService) { 
+  constructor(public mostrar:LibrosService, public usuarioService: UsuarioService) { 
     // this.libros = this.mostrar.getAll()
     // this.usuario = this.usuarioService.usuario
   }
 
   public condicional(id:HTMLInputElement){
+    console.log("id.value");
     console.log(id.value);
     if(id.value){
+      this.mostrar.getOne(this.usuarioService.usuario.id_usuario,id.valueAsNumber).subscribe((data:Libro[]) =>
+      {
+        this.libros = [];
+        for(let i =0; i< data.length; i++){
+          if(data[i].id_libro==id.valueAsNumber) {
+            this.libros.push(data[i])
+          } 
+        console.log("data");
+        console.log(data);
+        }
+      })
+    }else{
+
       this.libros = []
-      // this.mostrar.getOne(id.valueAsNumber)
-      this.mostrar.getAll(id.valueAsNumber).subscribe((data:Libro[])=>
+      
+      this.mostrar.getAll(this.usuarioService.usuario.id_usuario).subscribe((data:Libro[])=>
       {
         for(let i=0; i<data.length; i++){
         this.libros.push(data[i])
         }
       })
-      console.log("mostrargetall");
-      console.log(this.mostrar.getAll(id.valueAsNumber));
+      
       
 
     // }else{
