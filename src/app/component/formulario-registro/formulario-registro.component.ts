@@ -10,7 +10,8 @@ import { UsuarioService } from 'src/app/share/usuario.service';
 export class FormularioRegistroComponent implements OnInit {
 
   public usuario:Usuario;
-  public repetirPassword:string
+  public repetirPassword:string;
+  public coinciden:Boolean = true;
   constructor(public apiService:UsuarioService) { 
     this.usuario = new Usuario(null, null, null, null, null)
   }
@@ -29,10 +30,10 @@ export class FormularioRegistroComponent implements OnInit {
         })
         
         console.log("Usuario Registrado");
-        
+        this.coinciden = true
     }else{
       console.log("Las contraseñas no coincicen");
-      
+      this.coinciden = false
     }
   }
 }
