@@ -9,17 +9,19 @@ import { UsuarioService } from 'src/app/share/usuario.service';
 })
 export class FormularioRegistroComponent implements OnInit {
 
-  public usuario:Usuario
-  constructor(public apiService:UsuarioService) { }
-
+  public usuario:Usuario;
+  public repetirPassword:string
+  constructor(public apiService:UsuarioService) { 
+    this.usuario = new Usuario(null, null, null, null, null)
+  }
+  
   ngOnInit(): void {
   }
 
-  registrarse(nombre:HTMLInputElement, apellidos:HTMLInputElement, 
-            email:HTMLInputElement, url:HTMLInputElement, 
-            contraseña:HTMLInputElement, repetircontra:HTMLInputElement){
-    if(contraseña.value == repetircontra.value){
-        let usuarioNuevo = new Usuario(nombre.value, apellidos.value, email.value, url.value, contraseña.value)
+  registrarse(){
+    console.log("hola");
+    if(this.usuario.password == this.repetirPassword){
+        let usuarioNuevo = new Usuario(this.usuario.nombre, this.usuario.apellidos, this.usuario.correo, this.usuario.foto, this.usuario.password)
         this.apiService.register(usuarioNuevo).subscribe((data:Usuario[]) =>
         {
           console.log(data);

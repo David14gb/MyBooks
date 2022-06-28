@@ -1,22 +1,35 @@
  <!-- Formulario -->
- <form>
+ <form #registerForm="ngForm" (ngSubmit)="registrarse()">
     <div class="formulariopadre">
         <h1>Books</h1>
             <div class="formulario">
-                <label for="nombre">Nombre:</label>
-                <input type="text" placeholder="Nombre" id="nombre" class="formu" #input1><br>
-                <label for="apellido">Apellido:</label>
-                <input type="text" placeholder="Apellido" id="apellido" class="formu" #input2><br>
-                <label for="email">Email:</label>
-                <input type="text" placeholder="Email" id="email" class="formu" #input3><br>
-                <label for="url">Url:</label>
-                <input type="text" placeholder="Url" id="url" class="formu" #input4><br>
-                <label for="contraseña">Contraseña:</label>
-                <input type="text" placeholder="Contraseña" id="contraseña" class="formu" #input5><br>
-                <label for="recontra">Repetir constraseña:</label>
-                <input type="text" placeholder="Repetir Contraseña" id="recontra" class="formu" #input6><br>
-                
-                <button type="button" on-click="registrarse(input1,input2,input3,input4,input5,input6)" class="formu">Mostrar</button>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="usuario.nombre"><br>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" name="apellidos" id="apellido" class="form-control" [(ngModel)]="usuario.apellidos"><br>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" name="correo" id="email" class="form-control" [(ngModel)]="usuario.correo"><br>
+                </div>
+                <div class="form-group">
+                    <label for="url">Url:</label>
+                    <input type="text" name="url" id="url" class="form-control" [(ngModel)]="usuario.foto"><br>
+                </div> 
+                <div class="form-group">
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="text" name="contraseña" id="contraseña" class="form-control" [(ngModel)]="usuario.password"><br>
+                </div>
+                <div class="form-group">
+                    <label for="recontra">Repetir constraseña:</label>
+                    <input type="text" name="repetir Contraseña" id="recontra" class="form-control" [(ngModel)]="repetirPassword"><br>
+                </div> 
+                <div class="form-group">   
+                    <button class="formu">Registrarse</button>
+                </div>  
 
             </div>
     </div>

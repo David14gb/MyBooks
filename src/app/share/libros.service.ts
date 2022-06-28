@@ -88,7 +88,7 @@ export class LibrosService {
     
     // for(let i=0; i<this.libros.length;i++){
       // if(id_libro){
-        
+      
         
         
         // splice(id_libro, 1)
