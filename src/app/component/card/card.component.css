@@ -1,0 +1,141 @@
+.buscar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    
+}
+.cardPadre{
+    margin-top: 1%;
+    flex-wrap: wrap;
+    height: auto;
+    width: 80vw;
+}
+.card{
+    height: 75%;
+    width: 100%;
+    margin:0.5%;
+    background-color: rgba(0, 100, 100, 0.5);
+    border: 2px solid black;
+    position: relative;
+}
+.card-body{
+    background-color: rgba(0, 100, 100, 0.5)
+}
+.list-group-item{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+img{
+    height: 200px;
+    width: 100%;
+}
+.botonX{
+    display: flex;
+    flex-direction: row;
+    justify-content:end;
+
+}
+.x{
+    height: 25px;
+    width: 20px;
+    border: 0px solid rgba(0, 0, 0, 0.5);
+    background-color: rgba(244, 239, 239, 0.5);
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+
+    position: absolute;
+    right: 0;
+    margin: 10px;
+  
+}
+.formula{
+    height: 45px; 
+    padding-left: 5px;
+    padding-right: 5px;   
+    margin-bottom: 20px; 
+    margin-top: 10px;   
+    color: aquamarine;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-color: black; 
+    border-radius: 10px;  
+    width: 100%;   
+    cursor: pointer;
+}
+
+.claseBoton{
+    height: 45px; 
+    padding-left: 5px;
+    padding-right: 5px;   
+    margin-bottom: 20px; 
+    margin-top: 10px;   
+    color: black;
+    background-color:aqua; 
+    border-color: black; 
+    border-radius: 10px;  
+    width: 100%;   
+    cursor: pointer;
+}
+
+/* Formulario */
+.formulariopadre{
+    width: 460px; 
+    height: auto;
+    margin: 80px auto;
+    border-radius: 10px;  
+    padding-top: 30px;
+    padding-bottom: 20px;  
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding-left: 30px; 
+    border: 3px solid black;
+}
+input{
+    background-color: aquamarine; 
+    width: 408px; 
+    height: 40px; 
+    border-radius: 5px;  
+    border-style: solid; 
+    border-width: 1px; 
+    border-color: black; 
+    margin-top: 10px;  
+    padding-left: 10px;
+    margin-bottom: 20px; 
+}
+textarea{
+    background-color: #fbfbfb; 
+    width: 405px; 
+    height: 150px; 
+    border-radius: 5px;  
+    border-style: solid; 
+    border-width: 1px; 
+    border-color: black; 
+    margin-top: 10px;  
+    padding-left: 10px;
+    margin-bottom: 20px; 
+    padding-top: 15px; 
+}
+button{
+    height: 45px; 
+    padding-left: 5px;
+    padding-right: 5px;   
+    margin-bottom: 20px; 
+    margin-top: 10px;   
+    text-transform: uppercase;
+    color: aquamarine;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-color: black; 
+    border-radius: 10px;  
+    width: 405px;   
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgba(9, 245, 229, 0.5);
+}
+h1{
+    font-size: 39px;  
+    text-align: letf; 
+    padding-bottom: 20px; 
+    color: aquamarine;
+}

@@ -16,7 +16,8 @@ import { AnadirComponent } from './pages/anadir/anadir.component';
 import { ModificarComponent } from './pages/modificar/modificar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
-import { FormularioLoginComponent } from './component/formulario-login/formulario-login.component'
+import { FormularioLoginComponent } from './component/formulario-login/formulario-login.component';
+import { CardComponent } from './component/card/card.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormularioLoginComponent } from './component/formulario-login/formulari
     AnadirComponent,
     ModificarComponent,
     LoginComponent,
-    FormularioLoginComponent
+    FormularioLoginComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

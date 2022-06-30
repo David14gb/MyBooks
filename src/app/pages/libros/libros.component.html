@@ -6,55 +6,14 @@
             <button class="btn btn-outline-success" on-click="condicional(idusuario)" type="button">Search</button>
         </form>
     </div>
-    <!-- Cards -->
-    <!-- <div class="cardPadre d-flex" *ngIf="id == id_usuario; else elseTemplate"> -->
-        <ng-container *ngFor="let libro of libros; let even=even"> 
-            <div class="card" style="width: 18rem;">
-                    <button class="x" type="number" on-click="borrar(libro.id_libro)">X</button>
-                <img class="card-img-top" src="{{libro.foto}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{libro.titulo}}</h5>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Tapa: {{libro.tipo}}</li>
-                        <li class="list-group-item">Autor: {{libro.autor}}</li>
-                        <li class="list-group-item">Precio: {{libro.precio}}€</li>
-                        <li class="list-group-item">{{libro.id_libro | reflibro}}</li>
-                    </ul>
-                </div>
-                    <div class="card-body">
-                    <button type="button" class="formula" [ngClass]="even === true ? 'claseBoton' : ''">Comprar</button>
-                </div>
-                </div>
-            </div>
-        </ng-container> 
-    <!-- </div> -->
+<!-- <div class="cardPadre d-flex" *ngIf="this.libros.length < 1; else elseTemplate"> -->
+    <ng-container *ngFor="let libro of libros; let even=even"> 
+
+    <app-card [librosPadre]="libro" (eventoLibro)="borrar($event)" [posicionEven]="even"></app-card>
+    <!-- <app-card (eventoLibro)="($event)"></app-card> -->
+    </ng-container> 
+<!-- </div> -->
     <ng-template class="noLibros" #elseTemplate>
         No hay libros
     </ng-template>
-     <!-- Formulario -->
-    <!-- <form>
-        <div class="formulariopadre">
-            <h1>Libros</h1>
-                <div class="formulario">
-                    <label for="idlibro">Id Libro:</label>
-                    <input type="number" placeholder="Id Libro" id="idlibro" class="formu" #input1><br>
-                    <label for="idusuario">Id Usuario:</label>
-                    <input type="number" placeholder="Id Usuario" id="idusuario" class="formu" #input2><br>
-                    <label for="titulo">Título:</label>
-                    <input type="text" placeholder="Título" id="tutulo" class="formu" #input3><br>
-                    <label for="tipolibro">Tipo de libro:</label>
-                    <input type="text" placeholder="Tipo de Libro" id="tipolibro" class="formu" #input4><br>
-                    <label for="autor">Autor:</label>
-                    <input type="text" placeholder="Autor" id="autor" class="formu" #input5><br>
-                    <label for="precio">Precio:</label>
-                    <input type="number" placeholder="Precio" id="precio" class="formu" #input6><br>
-                    <label for="photo">Photo:</label>
-                    <input type="text" placeholder="Photo" id="photo" class="formu" #input7><br>
-                   
-                    <button type="button" on-click=anadir(input1,input2,input3,input4,input5,input6,input7) class="formu">Mostrar</button>
-
-                </div>
-        </div>
-    </form> -->
 </div>

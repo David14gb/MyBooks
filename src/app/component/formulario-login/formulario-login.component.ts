@@ -27,14 +27,14 @@ export class FormularioLoginComponent implements OnInit {
     let inicioSesion = new Usuario (null, null, this.usuario.correo, null, this.usuario.password)
     this.apiService.login(inicioSesion).subscribe((data:any) => 
     {
-      console.log(this.usuario.correo);
-      console.log(this.usuario.password);
+      // console.log(this.usuario.correo);
+      // console.log(this.usuario.password);
       
       // console.log("data");
       // console.log(data);
       this.apiService.usuario = data.result[0];
-      console.log("Data[0]");
-      console.log(data[0]);
+      // console.log("Data[0]");
+      // console.log(data[0]);
       // console.log("apiService");
       // console.log(this.apiService);
       

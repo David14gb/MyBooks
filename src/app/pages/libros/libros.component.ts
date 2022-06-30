@@ -26,24 +26,19 @@ export class LibrosComponent implements OnInit {
     if(id.value){
       this.mostrar.getOne(this.usuarioService.usuario.id_usuario,id.valueAsNumber).subscribe((data:Libro[]) =>
       {
-        this.libros = [];
-        for(let i =0; i< data.length; i++){
-          if(data[i].id_libro==id.valueAsNumber) {
-            this.libros.push(data[i])
-          } 
         console.log("data");
         console.log(data);
-        }
+        
+        this.libros = data;
+        
       })
     }else{
 
-      this.libros = []
+
       
       this.mostrar.getAll(this.usuarioService.usuario.id_usuario).subscribe((data:Libro[])=>
       {
-        for(let i=0; i<data.length; i++){
-        this.libros.push(data[i])
-        }
+        this.libros = data
       })
       
       
@@ -55,7 +50,30 @@ export class LibrosComponent implements OnInit {
 
   public borrar(id:number){
 
+    // this.idBorrado = id;
     console.log(id);
+    // console.log(this.idBorrado);
+    
+    console.log("this.libros");
+    console.log(this.libros);
+    let filtro = this.libros.filter(filtrar => filtrar.id_libro == id)
+    
+    console.log("filtro");
+    console.log(filtro);
+    
+    let borrar
+    borrar = this.libros.indexOf(filtro[0])
+    this.libros.splice(borrar,1);
+
+    // let filter = this.libros.filter( filtrado=>{ 
+    // for(let i=0; i<this.libros.length; i++){
+    //   let borrar
+    //   if(this.libros[i].id_libro == id){
+    //     borrar = this.libros.indexOf(this.libros[i])
+
+    //     this.libros.splice(borrar,1);
+    //   }})
+    
     this.mostrar.delete(id).subscribe((data)=>
     {
       console.log("Delete libros component");
@@ -66,9 +84,5 @@ export class LibrosComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  // public anadir(idl:HTMLInputElement, idu:HTMLInputElement, titulo:HTMLInputElement, tipolibro:HTMLInputElement, autor:HTMLInputElement, precio:HTMLInputElement, photo:HTMLInputElement){
-  
-  //     this.libros.push(new Libro(idl.valueAsNumber, idu.valueAsNumber, titulo.value, tipolibro.value, autor.value, precio.valueAsNumber, photo.value))
-  // }
 
 }

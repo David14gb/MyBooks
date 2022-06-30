@@ -1,0 +1,22 @@
+<!-- Cards -->
+
+        <div class="card" style="width: 18rem;">
+                <button class="x" type="number" on-click="borrar(librosPadre.id_libro)">X</button>
+            <img class="card-img-top" src="{{librosPadre.foto}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{librosPadre.titulo}}</h5>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Tapa: {{librosPadre.tipo}}</li>
+                    <li class="list-group-item">Autor: {{librosPadre.autor}}</li>
+                    <li class="list-group-item">Precio: {{librosPadre.precio}}€</li>
+                    <li class="list-group-item">{{librosPadre.id_libro | reflibro}}</li>
+                </ul>
+            </div>
+                <div class="card-body">
+                <button type="button" class="formula" [ngClass]="posicionEven ? 'claseBoton' : ''">Comprar</button>
+                
+            </div>
+            </div>
+        </div>
+
